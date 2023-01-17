@@ -1,10 +1,14 @@
-console.log("Chrome extension go?");
+chrome.runtime.onMessage.addListener(gotMessage);
 
-setInterval(() => {
-  var elements = document.querySelectorAll(
-    '[aria-label*="View Tweet analytics"]'
-  );
-  for (el of elements) {
-    el.parentElement.remove();
+function gotMessage(message, sender, sendResponse) {
+  if (message.txt === "hello") {
+    setInterval(() => {
+      var elements = document.querySelectorAll(
+        '[aria-label*="View Tweet analytics"]'
+      );
+      for (el of elements) {
+        el.parentElement.remove();
+      }
+    }, 100);
   }
-}, 100);
+}
