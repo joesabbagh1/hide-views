@@ -5,7 +5,6 @@ setInterval(() => {
     '[aria-label*="View Tweet analytics"]'
   );
   for (el of elements) {
-    console.log(el, "        ");
     el.parentElement.remove();
   }
 }, 100);
